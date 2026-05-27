@@ -8,25 +8,28 @@
     body {
       font-family: Arial, sans-serif;
       min-height: 100vh;
-      background-color: #eef3f7;
+      background-color: #edf3f8;
       background-image:
-        linear-gradient(to bottom, rgba(255,255,255,0.35), rgba(214,226,236,0.35)),
-        radial-gradient(rgba(160, 175, 190, 0.18) 1px, transparent 1px);
-      background-size: auto, 26px 26px;
+        linear-gradient(rgba(120, 145, 165, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120, 145, 165, 0.10) 1px, transparent 1px),
+        radial-gradient(circle at top, rgba(11, 107, 203, 0.10), transparent 40%);
+      background-size: 36px 36px, 36px 36px, auto;
       color: #222;
       margin: 0;
-      padding: 0;
+      padding: 40px 20px;
       text-align: center;
     }
-      
+
     .box {
-      max-width: 900px;
-      margin: 60px auto;
-      background: rgba(255, 255, 255, 0.92);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      border: 1px solid rgba(180, 190, 200, 0.35);
+      max-width: 950px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 48px;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(24, 44, 74, 0.10);
+      border: 1px solid rgba(160, 175, 190, 0.30);
     }
 
     h1 {
@@ -100,6 +103,44 @@
       font-size: 18px;
       color: #333;
       margin-bottom: 16px;
+    }
+
+        h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #16324a;
+      letter-spacing: -0.5px;
+    }
+
+    .secondario {
+      font-size: 19px;
+      color: #35516b;
+    }
+
+    .bottone {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 15px 28px;
+      background: linear-gradient(135deg, #0b6bcb, #0a58a8);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 10px 25px rgba(11, 107, 203, 0.20);
+    }
+
+    .bottone:hover {
+      opacity: 0.95;
+    }
+
+    .servizi,
+    .chi-sono {
+      background: rgba(248, 251, 253, 0.85);
+      border: 1px solid rgba(180, 190, 200, 0.25);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-top: 36px;
     }
     
   </style>
