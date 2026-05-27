@@ -5,174 +5,456 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consulenza AI e Automazione per aziende</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      min-height: 100vh;
+      color: #16324a;
       background-color: #edf3f8;
       background-image:
-        linear-gradient(rgba(120, 145, 165, 0.10) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(120, 145, 165, 0.10) 1px, transparent 1px),
+        linear-gradient(rgba(120, 145, 165, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(120, 145, 165, 0.08) 1px, transparent 1px),
         radial-gradient(circle at top, rgba(11, 107, 203, 0.10), transparent 40%);
-      background-size: 36px 36px, 36px 36px, auto;
-      color: #222;
-      margin: 0;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .box {
-      max-width: 950px;
-      margin: 40px auto;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      padding: 48px;
-      border-radius: 18px;
-      box-shadow: 0 20px 50px rgba(24, 44, 74, 0.10);
-      border: 1px solid rgba(160, 175, 190, 0.30);
-    }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 20px;
+      background-size: 34px 34px, 34px 34px, auto;
       line-height: 1.6;
-      margin-bottom: 18px;
     }
 
-    .secondario {
-      font-size: 18px;
-      color: #444;
+    .wrapper {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 70px;
     }
 
-    .servizi {
-      margin-top: 35px;
-      text-align: left;
-      display: inline-block;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(150, 170, 190, 0.22);
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(25, 45, 72, 0.06);
     }
 
-    .servizi h2 {
-      font-size: 26px;
-      margin-bottom: 15px;
-      text-align: center;
+    .brand {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+      color: #13324a;
     }
 
-    .servizi ul {
-      padding-left: 20px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .bottone {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 24px;
-      background-color: #0b6bcb;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-    }
-
-    .contatto {
-      margin-top: 30px;
-      font-size: 17px;
-      color: #555;
-    }
-
-    a {
+    .brand span {
       color: #0b6bcb;
     }
 
-    .chi-sono {
-      margin-top: 40px;
-      text-align: left;
-      padding-top: 10px;
+    .topbar a {
+      color: #0b6bcb;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
     }
 
-    .chi-sono h2 {
-      font-size: 26px;
-      margin-bottom: 15px;
-      text-align: center;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 30px;
     }
 
-    .chi-sono p {
+    .hero-main,
+    .hero-side,
+    .panel,
+    .contact-panel {
+      background: rgba(255, 255, 255, 0.90);
+      border: 1px solid rgba(150, 170, 190, 0.22);
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(24, 44, 74, 0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero-main {
+      padding: 54px 46px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(11, 107, 203, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(11, 107, 203, 0.10);
+      color: #0b6bcb;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 54px;
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+      color: #112d44;
+      max-width: 10ch;
+    }
+
+    .lead {
+      font-size: 21px;
+      color: #35516b;
+      max-width: 58ch;
+      margin-bottom: 18px;
+    }
+
+    .sublead {
       font-size: 18px;
-      color: #333;
-      margin-bottom: 16px;
+      color: #4e657c;
+      max-width: 58ch;
+      margin-bottom: 28px;
     }
 
-        h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      display: inline-block;
+      padding: 15px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0b6bcb, #0a58a8);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(11, 107, 203, 0.22);
+    }
+
+    .btn-secondary {
+      background: #f5f9fc;
       color: #16324a;
+      border: 1px solid rgba(150, 170, 190, 0.25);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-side {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .side-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #678096;
+      font-weight: bold;
+    }
+
+    .metric-card {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(243, 248, 252, 0.95), rgba(232, 240, 247, 0.95));
+      border-radius: 16px;
+      border: 1px solid rgba(170, 185, 200, 0.22);
+    }
+
+    .metric-title {
+      font-size: 14px;
+      color: #5b7286;
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-size: 30px;
+      font-weight: bold;
+      color: #13324a;
+      margin-bottom: 8px;
+    }
+
+    .metric-note {
+      font-size: 14px;
+      color: #51677c;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .mini-box {
+      padding: 16px;
+      border-radius: 14px;
+      background: #f8fbfd;
+      border: 1px solid rgba(170, 185, 200, 0.22);
+    }
+
+    .mini-box strong {
+      display: block;
+      font-size: 15px;
+      color: #16324a;
+      margin-bottom: 6px;
+    }
+
+    .mini-box span {
+      font-size: 14px;
+      color: #5f7487;
+    }
+
+    .grid-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .panel {
+      padding: 30px;
+    }
+
+    .panel h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 30px;
+      color: #122f45;
       letter-spacing: -0.5px;
     }
 
-    .secondario {
-      font-size: 19px;
+    .panel p {
+      font-size: 17px;
+      color: #456076;
+      margin-bottom: 16px;
+    }
+
+    .service-list,
+    .method-list {
+      margin: 0;
+      padding-left: 20px;
       color: #35516b;
+      font-size: 17px;
     }
 
-    .bottone {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 15px 28px;
-      background: linear-gradient(135deg, #0b6bcb, #0a58a8);
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
+    .service-list li,
+    .method-list li {
+      margin-bottom: 12px;
+    }
+
+    .contact-panel {
+      padding: 34px;
+      text-align: center;
+    }
+
+    .contact-panel h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 34px;
+      color: #12324a;
+    }
+
+    .contact-panel p {
       font-size: 18px;
+      color: #4d657a;
+      margin-bottom: 20px;
+    }
+
+    .mail-link {
+      color: #0b6bcb;
+      text-decoration: none;
       font-weight: bold;
-      box-shadow: 0 10px 25px rgba(11, 107, 203, 0.20);
     }
 
-    .bottone:hover {
-      opacity: 0.95;
+    .footer-note {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #6a8195;
     }
 
-    .servizi,
-    .chi-sono {
-      background: rgba(248, 251, 253, 0.85);
-      border: 1px solid rgba(180, 190, 200, 0.25);
-      border-radius: 14px;
-      padding: 24px 28px;
-      margin-top: 36px;
+    @media (max-width: 980px) {
+      .hero,
+      .grid-sections {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+        max-width: none;
+      }
+
+      .hero-main {
+        padding: 38px 28px;
+      }
     }
-    
+
+    @media (max-width: 640px) {
+      .wrapper {
+        padding: 18px 14px 44px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .lead {
+        font-size: 19px;
+      }
+
+      .sublead,
+      .panel p,
+      .service-list,
+      .method-list,
+      .contact-panel p {
+        font-size: 16px;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel,
+      .contact-panel,
+      .hero-side {
+        padding: 24px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Consulenza AI e Automazione per aziende</h1>
-
-    <p>Aiuto le aziende a ridurre attività manuali, migliorare l’analisi dei dati e trovare soluzioni pratiche di automazione con strumenti digitali e intelligenza artificiale.</p>
-
-    <p class="secondario">Collaboro con PMI e aziende che vogliono snellire processi ripetitivi e migliorare i flussi gestiti con Excel ed email.</p>
-
-    <div class="servizi">
-      <h2>Servizi</h2>
-      <ul>
-        <li>Analisi dati e supporto decisionale</li>
-        <li>Automazione di attività ripetitive</li>
-        <li>Ottimizzazione di flussi gestiti con Excel ed email</li>
-        <li>Supporto nella scelta di strumenti digitali per l’azienda</li>
-      </ul>
+  <div class="wrapper">
+    <div class="topbar">
+      <div class="brand">AI<span>Sync</span> Studio</div>
+      <a href="mailto:aisyncstudio@gmail.com">aisyncstudio@gmail.com</a>
     </div>
-    
-    <section class="chi-sono">
-      <h2>Chi sono</h2>
-      <p>Sono un professionista dell’analisi dati e dell’automazione dei processi con una lunga esperienza in contesti aziendali strutturati. Nel tempo ho lavorato su reporting, flussi di produzione, controllo dati e strumenti come Excel, Access, Power BI, SAP e MES, sviluppando soluzioni pratiche per ridurre attività manuali, migliorare la qualità delle informazioni e rendere più efficienti i processi operativi.</p>
 
-      <p>Oggi utilizzo anche strumenti di intelligenza artificiale per accelerare sviluppo di automazioni, macro VBA e flussi di analisi, mantenendo sempre un approccio concreto: capire il problema, adattare gli strumenti al contesto aziendale e costruire soluzioni utili davvero a chi lavora ogni giorno con dati, file, email e processi ripetitivi.</p>
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">Consulenza per dati, processi e automazione</div>
+        <h1>Consulenza AI e Automazione per aziende</h1>
+        <p class="lead">
+          Aiuto le aziende a ridurre attività manuali, migliorare l’analisi dei dati e trovare soluzioni pratiche di automazione con strumenti digitali e intelligenza artificiale.
+        </p>
+        <p class="sublead">
+          Collaboro con PMI e aziende che vogliono snellire processi ripetitivi e migliorare i flussi gestiti con Excel ed email.
+        </p>
+        <div class="cta-row">
+          <a class="btn-primary" href="mailto:aisyncstudio@gmail.com">Scrivimi per una prima analisi</a>
+          <a class="btn-secondary" href="#chi-sono">Scopri il mio profilo</a>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div>
+          <div class="side-label">Focus operativo</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-title">Ambito di intervento</div>
+          <div class="metric-value">Dati + Processi</div>
+          <div class="metric-note">Analisi, automazione, reporting e miglioramento dei flussi aziendali.</div>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini-box">
+            <strong>Excel evoluto</strong>
+            <span>Ottimizzazione, automazione e uso più intelligente dei flussi esistenti.</span>
+          </div>
+          <div class="mini-box">
+            <strong>AI pratica</strong>
+            <span>Strumenti concreti per accelerare attività, analisi e sviluppo di soluzioni utili.</span>
+          </div>
+          <div class="mini-box">
+            <strong>Processi ripetitivi</strong>
+            <span>Riduzione di passaggi manuali, copie dati ed email non necessarie.</span>
+          </div>
+          <div class="mini-box">
+            <strong>Contesto aziendale</strong>
+            <span>Soluzioni pensate per chi lavora davvero tra uffici, file, reparti e procedure.</span>
+          </div>
+        </div>
+      </aside>
     </section>
-    
-    <a class="bottone" href="mailto:aisyncstudio@gmail.com">Scrivimi per una prima analisi</a>
 
-    <p class="contatto">Contatto diretto: <a href="mailto:aisyncstudio@gmail.com">aisyncstudio@gmail.com</a></p>
+    <div class="grid-sections">
+      <section class="panel">
+        <h2>Servizi</h2>
+        <ul class="service-list">
+          <li>Analisi dati e supporto decisionale.</li>
+          <li>Automazione di attività ripetitive.</li>
+          <li>Ottimizzazione di flussi gestiti con Excel ed email.</li>
+          <li>Supporto nella scelta di strumenti digitali per l’azienda.</li>
+        </ul>
+      </section>
+
+      <section class="panel" id="chi-sono">
+        <h2>Chi sono</h2>
+        <p>
+          Sono un professionista dell’analisi dati e dell’automazione dei processi con una lunga esperienza in contesti aziendali strutturati. Nel tempo ho lavorato su reporting, flussi di produzione, controllo dati e strumenti come Excel, Access, Power BI, SAP e MES.
+        </p>
+        <p>
+          Oggi utilizzo anche strumenti di intelligenza artificiale per accelerare lo sviluppo di automazioni, macro VBA e flussi di analisi, mantenendo sempre un approccio concreto: capire il problema, adattare gli strumenti al contesto aziendale e costruire soluzioni utili davvero.
+        </p>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>Metodo di lavoro</h2>
+      <ul class="method-list">
+        <li>Parto dai problemi reali: attività manuali, flussi dispersivi, dati duplicati, email ingestibili.</li>
+        <li>Valuto cosa conviene migliorare con gli strumenti già presenti in azienda, senza complicare inutilmente il contesto.</li>
+        <li>Costruisco soluzioni pratiche e progressive, orientate a semplificare il lavoro e rendere più affidabili i dati.</li>
+      </ul>
+    </section>
+
+    <section class="contact-panel">
+      <h2>Contatto</h2>
+      <p>
+        Se vuoi capire se nel tuo contesto ci sono attività automatizzabili o flussi migliorabili, puoi scrivermi direttamente.
+      </p>
+      <a class="btn-primary" href="mailto:aisyncstudio@gmail.com">Contattami via email</a>
+      <div class="footer-note">
+        Email diretta:
+        <a class="mail-link" href="mailto:aisyncstudio@gmail.com">aisyncstudio@gmail.com</a>
+      </div>
+    </section>
   </div>
 </body>
 </html>
